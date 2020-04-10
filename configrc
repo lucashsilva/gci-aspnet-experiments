@@ -1,0 +1,9 @@
+export SSH_KEY_USER=lucassilva
+export SSH_KEY_PATH=/Users/lucas/.ssh/gcp-lucassilva-lsd
+export LB=34.73.27.223
+export INSTANCES="104.198.139.250 35.184.74.14 35.232.45.7 35.226.172.230"
+export LOAD=50
+export DURATION=200
+export YOUNG_GEN=75000000
+export DISABLE_GCI=false
+export LOAD_CLIENT="source ~/.profile && echo \"POST http://localhost/garbage\" | vegeta attack -duration=${DURATION}s -rate ${LOAD} | tee results.bin | vegeta report"
