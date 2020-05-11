@@ -1,23 +1,30 @@
+#! /bin/bash
 # TO BE EXECUTED ON VM
 
 sudo apt update
-sudo apt upgrade
-sudo apt install nginx
+sudo apt -y upgrade 
+sudo apt -y install nginx
 
-set -euf -o pipefail
+set -e
 # Install pre-reqs
-sudo apt-get install python3 git -y
+sudo apt -y install python3 git
+
 o=$(python3 -c $'import os\nprint(os.get_blocking(0))\nos.set_blocking(0, True)')
 
 #Download Latest Go
 GOURLREGEX='https://dl.google.com/go/go[0-9\.]+\.linux-amd64.tar.gz'
 echo "Finding latest version of Go for AMD64..."
+
 url="$(wget -qO- https://golang.org/dl/ | grep -oP 'https:\/\/dl\.google\.com\/go\/go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1 )"
+
 latest="$(echo $url | grep -oP 'go[0-9\.]+' | grep -oP '[0-9\.]+' | head -c -2 )"
 echo "Downloading latest Go for AMD64: ${latest}"
+
 wget --quiet --continue --show-progress "${url}"
+
 unset url
 unset GOURLREGEX
+
 
 # Remove Old Go
 sudo rm -rf /usr/local/go
@@ -35,3 +42,6 @@ go get -u github.com/golang/dep/cmd/dep
 
 # Remove Download
 rm go"${latest}".linux-amd64.tar.gz
+
+# Vegeta
+go get -u github.com/tsenart/vegeta

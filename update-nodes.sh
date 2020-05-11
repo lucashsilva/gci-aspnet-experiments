@@ -5,12 +5,14 @@ date
 set -x
 
 # Update msgpush code
-for instance in ${INSTANCES};
+for port in ${INSTANCE_PORTS};
 do
-    ssh -i ${SSH_KEY_PATH} ${SSH_KEY_USER}@${instance} "cd garbage-generator && git pull"
+    ssh -p ${port} ${LB_MASTER} "cd garbage-generator && git pull"
+    scp -P ${port} mon.sh ${LB_MASTER}:~/
+    ssh -p ${port} ${LB_MASTER} "chmod a+x mon.sh"
 done 
 
 
 # Copy necessary files (via ssh)
-scp -i ${SSH_KEY_PATH} nginx.nogci.conf ${SSH_KEY_USER}@${LB}:~/
-scp -i ${SSH_KEY_PATH} nginx.gci.conf ${SSH_KEY_USER}@${LB}:~/
+scp -P ${GCI_NGINX_PORT} nginx.nogci.conf ${LB_MASTER}:~/
+scp -P ${GCI_NGINX_PORT} nginx.gci.conf ${LB_MASTER}:~/
