@@ -51,7 +51,7 @@ do
 	i=0
 	for port in ${INSTANCE_PORTS};
 	do
-		ssh ${LB_MASTER} -p ${port} "sudo killall gci-proxy 2>/dev/null; sudo killall dotnet 2>/dev/null; killall mon.sh 2>/dev/null; mv cpu.csv cpu_${FILE_NAME_SUFFIX}_${i}_${round}.csv; mv proxy.out proxy_${FILE_NAME_SUFFIX}_${i}_${round}.out"
+		ssh ${LB_MASTER} -p ${port} "sudo killall gci-proxy 2>/dev/null; sudo killall dotnet 2>/dev/null; killall mon.sh 2>/dev/null; mv cpu.csv cpu_${FILE_NAME_SUFFIX}_${i}_${round}.csv; mv proxy.out proxy_${FILE_NAME_SUFFIX}_${i}_${round}.out; mv msgpush.out msgpush_${FILE_NAME_SUFFIX}_${i}_${round}.out; mv msgpush.err msgpush_${FILE_NAME_SUFFIX}_${i}_${round}.err"
 		((i++))
 	done
 
@@ -63,7 +63,7 @@ do
 	i=0
 	for port in ${INSTANCE_PORTS};
 	do
-		scp -P ${port} ${LB_MASTER}:~/\{cpu*.csv,proxy*.out\} ${OUTPUT_DIR}
+		scp -P ${port} ${LB_MASTER}:~/\{cpu*.csv,proxy*.out,proxy*.err,msgpush*.out,msgpush*.err\} ${OUTPUT_DIR}
 		ssh ${LB_MASTER} -p ${port} "rm cpu*.csv *.out *.err"
 		((i++))
 	done
