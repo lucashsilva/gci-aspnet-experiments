@@ -68,9 +68,9 @@ go install
 go build
 cd ..
 
-# Clone and build gci-csharp and copy binary to msgpush
-git clone https://github.com/lucashsilva/gci-csharp.git
-cd gci-csharp
+# Clone and build gci-aspnet and copy binary to msgpush
+git clone https://github.com/lucashsilva/gci-aspnet.git
+cd gci-aspnet
 dotnet build
 cd ..
 
@@ -78,5 +78,5 @@ cd ..
 git clone https://github.com/lucashsilva/garbage-generator
 cd garbage-generator
 mkdir ./GarbageGenerator/lib/
-cp ../gci-csharp/bin/Debug/netcoreapp3.1/GCI.dll ./GarbageGenerator/lib/
+cp ../gci-aspnet/bin/Debug/netcoreapp3.1/GCI.dll ./GarbageGenerator/lib/
 cd
