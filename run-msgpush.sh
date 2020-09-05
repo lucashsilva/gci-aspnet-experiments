@@ -23,6 +23,7 @@ echo "FILE_NAME_SUFFIX: ${FILE_NAME_SUFFIX}"
 echo "LOAD_CLIENT: ${LOAD_CLIENT:=hey}"
 echo "INSTANCES: ${INSTANCES:=}"
 echo "OUTPUT_DIR: ${OUTPUT_DIR:=/tmp/instances}"
+
 mkdir -p "$OUTPUT_DIR"
 
 for round in `seq ${ROUND_START} ${ROUND_END}`
@@ -34,7 +35,7 @@ do
 
 	for port in ${INSTANCE_PORTS};
 	do
-		ssh ${LB_MASTER} -p ${port} "sudo killall gci-proxy 2>/dev/null; sudo killall dotnet 2>/dev/null; 2>/dev/null; killall mon.sh 2>/dev/null; sleep 5; sudo TO_POWER_OF=${TO_POWER_OF} nohup dotnet run --project ./garbage-generator/GarbageGenerator>msgpush.out 2>msgpush.err --urls=http://*:8080 & sleep 3; sudo nohup ./gci-proxy/gci-proxy -ygen ${YOUNG_GEN} -port 80 -target=localhost:8080 -gci_target=localhost:8080 -gci_path=__gci -disable_gci=${DISABLE_GCI}> proxy.out 2>proxy.err & nohup ./mon.sh >cpu.csv 2>/dev/null &"
+		ssh ${LB_MASTER} -p ${port} "sudo killall gci-proxy 2>/dev/null; sudo killall dotnet 2>/dev/null; 2>/dev/null; killall mon.sh 2>/dev/null; sleep 5; sudo TO_POWER_OF=${TO_POWER_OF} nohup dotnet run --project ./garbage-generator/GarbageGenerator>msgpush.out 2>msgpush.err --urls=http://*:8080 & sleep 5; sudo nohup ./gci-proxy/gci-proxy -ygen ${YOUNG_GEN} -port 80 -target=localhost:8080 -gci_target=localhost:8080 -gci_path=__gci -disable_gci=${DISABLE_GCI}> proxy.out 2>proxy.err & nohup ./mon.sh >cpu.csv 2>/dev/null &"
 	done 
 
 	if [ "$DISABLE_GCI" == "true" ]; 
@@ -51,14 +52,14 @@ do
 	i=0
 	for port in ${INSTANCE_PORTS};
 	do
-		ssh ${LB_MASTER} -p ${port} "sudo killall gci-proxy 2>/dev/null; sudo killall dotnet 2>/dev/null; killall mon.sh 2>/dev/null; mv cpu.csv cpu_${FILE_NAME_SUFFIX}_${i}_${round}.csv; mv proxy.out proxy_${FILE_NAME_SUFFIX}_${i}_${round}.out; mv msgpush.out msgpush_${FILE_NAME_SUFFIX}_${i}_${round}.out; mv msgpush.err msgpush_${FILE_NAME_SUFFIX}_${i}_${round}.err"
+		ssh ${LB_MASTER} -p ${port} "sudo killall gci-proxy 2>/dev/null; sudo killall dotnet 2>/dev/null; killall mon.sh 2>/dev/null; mv cpu.csv cpu_${FILE_NAME_SUFFIX}_${i}_${round}.csv; mv proxy.out proxy_${FILE_NAME_SUFFIX}_${i}_${round}.out; mv msgpush.out msgpush_${FILE_NAME_SUFFIX}_${i}_${round}.out; mv msgpush.err msgpush_${FILE_NAME_SUFFIX}_${i}_${round}.err; mv proxy.err proxy_${FILE_NAME_SUFFIX}_${i}_${round}.err;"
 		((i++))
 	done
 
 	echo "round ${round}: Done. Copying results and cleaning up instances..."
 	scp -P ${GCI_NGINX_PORT} ${LB_MASTER}:~/\{*.log,*.out,*.err\} ${OUTPUT_DIR}
 	ssh ${LB_MASTER} -p ${GCI_NGINX_PORT} "rm *.log; rm *.out *.err"
-	sed -i '1i timestamp;status;request_time;upstream_response_time' ${OUTPUT_DIR}/al_${FILE_NAME_SUFFIX}_${round}.log
+	# sed -i '1i timestamp;status;request_time;upstream_response_time' ${OUTPUT_DIR}/al_${FILE_NAME_SUFFIX}_${round}.log
 
 	i=0
 	for port in ${INSTANCE_PORTS};
