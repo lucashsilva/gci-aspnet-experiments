@@ -16,4 +16,7 @@ echo "export PATH='$PATH':/usr/local/go/bin:$GOPATH/bin" >> ~/.profile && source
 echo "Installing dep for dependency management"
 go get -u github.com/golang/dep/cmd/dep
 
+# Vegeta
+go get -u github.com/tsenart/vegeta
+
 echo "Done."
