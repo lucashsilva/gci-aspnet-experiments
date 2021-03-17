@@ -1,0 +1,55 @@
+Server GC Enabled: True
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://[::]:8080
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/debian/garbage-generator/GarbageGenerator
+[40m[1m[33mwarn[39m[22m[49m: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+Heap usage check at 11/01/2020 04:19:16 +00:00 , 43438656 bytes
+Heap usage check at 11/01/2020 04:19:29 +00:00 , 84943104 bytes
+Heap usage check at 11/01/2020 04:19:42 +00:00 , 126455896 bytes
+Heap usage check at 11/01/2020 04:19:55 +00:00 , 167977232 bytes
+Heap usage check at 11/01/2020 04:20:08 +00:00 , 209490192 bytes
+Heap usage check at 11/01/2020 04:20:20 +00:00 , 251019360 bytes
+Heap usage check at 11/01/2020 04:20:33 +00:00 , 292524752 bytes
+Heap usage check at 11/01/2020 04:20:46 +00:00 , 334038216 bytes
+GC: 11/01/2020 04:20:46 +00:00
+Heap usage check at 11/01/2020 04:20:59 +00:00 , 42400056 bytes
+Heap usage check at 11/01/2020 04:21:12 +00:00 , 83921416 bytes
+Heap usage check at 11/01/2020 04:21:24 +00:00 , 125443096 bytes
+Heap usage check at 11/01/2020 04:21:37 +00:00 , 166956752 bytes
+Heap usage check at 11/01/2020 04:21:50 +00:00 , 208470576 bytes
+Heap usage check at 11/01/2020 04:22:03 +00:00 , 249984600 bytes
+Heap usage check at 11/01/2020 04:22:16 +00:00 , 291505464 bytes
+GC: 11/01/2020 04:22:16 +00:00
+Heap usage check at 11/01/2020 04:22:28 +00:00 , 42400256 bytes
+Heap usage check at 11/01/2020 04:22:41 +00:00 , 83905632 bytes
+Heap usage check at 11/01/2020 04:22:54 +00:00 , 125411008 bytes
+Heap usage check at 11/01/2020 04:23:07 +00:00 , 166940288 bytes
+Heap usage check at 11/01/2020 04:23:20 +00:00 , 208445472 bytes
+Heap usage check at 11/01/2020 04:23:32 +00:00 , 249958952 bytes
+GC: 11/01/2020 04:23:32 +00:00
+Heap usage check at 11/01/2020 04:23:45 +00:00 , 42725800 bytes
+Heap usage check at 11/01/2020 04:23:58 +00:00 , 83911208 bytes
+Heap usage check at 11/01/2020 04:24:11 +00:00 , 125424368 bytes
+Heap usage check at 11/01/2020 04:24:24 +00:00 , 166954320 bytes
+Heap usage check at 11/01/2020 04:24:36 +00:00 , 208467784 bytes
+GC: 11/01/2020 04:24:36 +00:00
+Heap usage check at 11/01/2020 04:24:49 +00:00 , 42414008 bytes
+Heap usage check at 11/01/2020 04:25:02 +00:00 , 83916960 bytes
+Heap usage check at 11/01/2020 04:25:15 +00:00 , 125429144 bytes
+Heap usage check at 11/01/2020 04:25:28 +00:00 , 166948984 bytes
+Heap usage check at 11/01/2020 04:25:40 +00:00 , 208468328 bytes
+Heap usage check at 11/01/2020 04:25:53 +00:00 , 249988848 bytes
+Heap usage check at 11/01/2020 04:26:06 +00:00 , 291492360 bytes
+Heap usage check at 11/01/2020 04:26:19 +00:00 , 333020888 bytes
+GC: 11/01/2020 04:26:19 +00:00
+Heap usage check at 11/01/2020 04:27:23 +00:00 , 208425824 bytes
+Heap usage check at 11/01/2020 04:28:27 +00:00 , 415936424 bytes
+GC: 11/01/2020 04:28:27 +00:00
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

@@ -1,0 +1,105 @@
+Controllers/GarbageGenerator.cs(33,46): warning CS0168: The variable 'e' is declared but never used [/home/debian/garbage-generator/GarbageGenerator/GarbageGenerator.csproj]
+Server GC Enabled: True
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://[::]:8080
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/debian/garbage-generator/GarbageGenerator
+[40m[1m[33mwarn[39m[22m[49m: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+Heap usage check at 11/01/2020 03:30:35 +00:00 , 59791984 bytes
+Heap usage check at 11/01/2020 03:30:48 +00:00 , 117697312 bytes
+GC: 11/01/2020 03:30:48 +00:00
+Heap usage check at 11/01/2020 03:31:01 +00:00 , 58691120 bytes
+GC: 11/01/2020 03:31:01 +00:00
+Heap usage check at 11/01/2020 03:31:13 +00:00 , 58691832 bytes
+GC: 11/01/2020 03:31:13 +00:00
+Heap usage check at 11/01/2020 03:31:26 +00:00 , 58682664 bytes
+GC: 11/01/2020 03:31:26 +00:00
+Heap usage check at 11/01/2020 03:31:39 +00:00 , 58684672 bytes
+GC: 11/01/2020 03:31:39 +00:00
+Heap usage check at 11/01/2020 03:31:52 +00:00 , 58925856 bytes
+GC: 11/01/2020 03:31:52 +00:00
+Heap usage check at 11/01/2020 03:32:05 +00:00 , 58649256 bytes
+GC: 11/01/2020 03:32:05 +00:00
+Heap usage check at 11/01/2020 03:32:17 +00:00 , 58650384 bytes
+GC: 11/01/2020 03:32:17 +00:00
+Heap usage check at 11/01/2020 03:32:30 +00:00 , 58645416 bytes
+GC: 11/01/2020 03:32:30 +00:00
+Heap usage check at 11/01/2020 03:32:43 +00:00 , 59119168 bytes
+GC: 11/01/2020 03:32:43 +00:00
+Heap usage check at 11/01/2020 03:32:56 +00:00 , 59105888 bytes
+GC: 11/01/2020 03:32:56 +00:00
+Heap usage check at 11/01/2020 03:33:09 +00:00 , 59106432 bytes
+GC: 11/01/2020 03:33:09 +00:00
+Heap usage check at 11/01/2020 03:33:21 +00:00 , 59095680 bytes
+GC: 11/01/2020 03:33:21 +00:00
+Heap usage check at 11/01/2020 03:33:34 +00:00 , 59086560 bytes
+GC: 11/01/2020 03:33:34 +00:00
+Heap usage check at 11/01/2020 03:33:47 +00:00 , 59089008 bytes
+GC: 11/01/2020 03:33:47 +00:00
+Heap usage check at 11/01/2020 03:34:00 +00:00 , 59097864 bytes
+GC: 11/01/2020 03:34:00 +00:00
+Heap usage check at 11/01/2020 03:34:13 +00:00 , 59092736 bytes
+GC: 11/01/2020 03:34:13 +00:00
+Heap usage check at 11/01/2020 03:34:25 +00:00 , 59101248 bytes
+GC: 11/01/2020 03:34:25 +00:00
+Heap usage check at 11/01/2020 03:34:38 +00:00 , 59101024 bytes
+GC: 11/01/2020 03:34:38 +00:00
+Heap usage check at 11/01/2020 03:34:51 +00:00 , 59100848 bytes
+GC: 11/01/2020 03:34:51 +00:00
+Heap usage check at 11/01/2020 03:35:04 +00:00 , 59108888 bytes
+GC: 11/01/2020 03:35:04 +00:00
+Heap usage check at 11/01/2020 03:35:17 +00:00 , 59563144 bytes
+GC: 11/01/2020 03:35:17 +00:00
+Heap usage check at 11/01/2020 03:35:30 +00:00 , 58666488 bytes
+GC: 11/01/2020 03:35:30 +00:00
+Heap usage check at 11/01/2020 03:35:42 +00:00 , 58675224 bytes
+GC: 11/01/2020 03:35:42 +00:00
+Heap usage check at 11/01/2020 03:35:55 +00:00 , 58668312 bytes
+GC: 11/01/2020 03:35:55 +00:00
+Heap usage check at 11/01/2020 03:36:08 +00:00 , 58679008 bytes
+GC: 11/01/2020 03:36:08 +00:00
+Heap usage check at 11/01/2020 03:36:21 +00:00 , 58929168 bytes
+GC: 11/01/2020 03:36:21 +00:00
+Heap usage check at 11/01/2020 03:36:34 +00:00 , 58679096 bytes
+GC: 11/01/2020 03:36:34 +00:00
+Heap usage check at 11/01/2020 03:36:46 +00:00 , 58677112 bytes
+GC: 11/01/2020 03:36:46 +00:00
+Heap usage check at 11/01/2020 03:36:59 +00:00 , 59119688 bytes
+GC: 11/01/2020 03:36:59 +00:00
+Heap usage check at 11/01/2020 03:37:12 +00:00 , 59127904 bytes
+GC: 11/01/2020 03:37:12 +00:00
+Heap usage check at 11/01/2020 03:37:25 +00:00 , 59112080 bytes
+GC: 11/01/2020 03:37:25 +00:00
+Heap usage check at 11/01/2020 03:37:38 +00:00 , 59127192 bytes
+GC: 11/01/2020 03:37:38 +00:00
+Heap usage check at 11/01/2020 03:37:50 +00:00 , 59121688 bytes
+GC: 11/01/2020 03:37:50 +00:00
+Heap usage check at 11/01/2020 03:38:03 +00:00 , 59127744 bytes
+GC: 11/01/2020 03:38:03 +00:00
+Heap usage check at 11/01/2020 03:38:16 +00:00 , 59121288 bytes
+GC: 11/01/2020 03:38:16 +00:00
+Heap usage check at 11/01/2020 03:38:29 +00:00 , 59119648 bytes
+GC: 11/01/2020 03:38:29 +00:00
+Heap usage check at 11/01/2020 03:38:42 +00:00 , 59135904 bytes
+GC: 11/01/2020 03:38:42 +00:00
+Heap usage check at 11/01/2020 03:38:54 +00:00 , 59130336 bytes
+GC: 11/01/2020 03:38:54 +00:00
+Heap usage check at 11/01/2020 03:39:07 +00:00 , 59111624 bytes
+GC: 11/01/2020 03:39:07 +00:00
+Heap usage check at 11/01/2020 03:39:20 +00:00 , 59584888 bytes
+GC: 11/01/2020 03:39:20 +00:00
+Heap usage check at 11/01/2020 03:39:33 +00:00 , 58674352 bytes
+GC: 11/01/2020 03:39:33 +00:00
+Heap usage check at 11/01/2020 03:39:46 +00:00 , 58673520 bytes
+GC: 11/01/2020 03:39:46 +00:00
+Heap usage check at 11/01/2020 03:39:59 +00:00 , 58679688 bytes
+GC: 11/01/2020 03:39:59 +00:00
+Heap usage check at 11/01/2020 03:40:11 +00:00 , 58681760 bytes
+GC: 11/01/2020 03:40:11 +00:00
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
