@@ -4,8 +4,12 @@ export GCI_CLIENT=debian@150.165.15.48
 export INSTANCE_PORTS="23401 23402 23403 23404"
 export LOAD=40
 export DURATION=600
-export YOUNG_GEN=128000000
+export YOUNG_GEN=256000000
+export GC_HEAP_LIMIT=1000000000
+export MSG_SIZE=64000
+export WINDOW_SIZE=24000
 export DISABLE_GCI=false
-export TO_POWER_OF=21
 export OUTPUT_DIR=results
-export LOAD_CLIENT="source ~/.profile && echo \"GET http://10.11.19.44/garbage\" | vegeta attack -duration=${DURATION}s -rate ${LOAD} | tee results.bin | vegeta report"
+export LOAD_CLIENT="source ~/.profile && echo \"GET http://localhost/garbage\" | vegeta attack -duration=${DURATION}s -rate ${LOAD} | tee results.bin | vegeta report"
+export ROUND_START=1
+export ROUND_END=15

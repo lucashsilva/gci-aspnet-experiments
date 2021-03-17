@@ -7,6 +7,7 @@ set -x
 # Update msgpush code
 for port in ${INSTANCE_PORTS};
 do
+    # ssh -p ${port} ${LB_MASTER} "cd gci-aspnet && git pull && dotnet build"
     ssh -p ${port} ${LB_MASTER} "cd garbage-generator && git pull"
     scp -P ${port} mon.sh ${LB_MASTER}:~/
     ssh -p ${port} ${LB_MASTER} "chmod a+x mon.sh"

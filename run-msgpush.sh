@@ -8,6 +8,7 @@ set -x
 # GCI on/off switcher.
 if [ "$DISABLE_GCI" == "true" ];
 then
+	USE_GCI="false"
 	FILE_NAME_SUFFIX="nogci"
 else
 	USE_GCI="true"
@@ -35,7 +36,7 @@ do
 
 	for port in ${INSTANCE_PORTS};
 	do
-		ssh ${LB_MASTER} -p ${port} "sudo killall gci-proxy 2>/dev/null; sudo killall dotnet 2>/dev/null; 2>/dev/null; killall mon.sh 2>/dev/null; sleep 5; sudo TO_POWER_OF=${TO_POWER_OF} nohup dotnet run --project ./garbage-generator/GarbageGenerator>msgpush.out 2>msgpush.err --urls=http://*:8080 & sleep 5; sudo nohup ./gci-proxy/gci-proxy -ygen ${YOUNG_GEN} -port 80 -target=localhost:8080 -gci_target=localhost:8080 -gci_path=__gci -disable_gci=${DISABLE_GCI}> proxy.out 2>proxy.err & nohup ./mon.sh >cpu.csv 2>/dev/null &"
+		ssh ${LB_MASTER} -p ${port} "sudo killall gci-proxy 2>/dev/null; sudo killall dotnet 2>/dev/null; 2>/dev/null; killall mon.sh 2>/dev/null; sleep 5; sudo USE_GCI=${USE_GCI} HEAP_SIZE=${GC_HEAP_LIMIT} WINDOW_SIZE=${WINDOW_SIZE} MSG_SIZE=${MSG_SIZE} nohup dotnet run --project ./garbage-generator/GarbageGenerator>msgpush.out 2>msgpush.err --urls=http://*:8080 & sleep 10; sudo nohup ./gci-proxy/gci-proxy -ygen ${YOUNG_GEN} -port 80 -target=localhost:8080 -gci_target=localhost:8080 -gci_path=__gci -disable_gci=${DISABLE_GCI}> proxy.out 2>proxy.err & nohup ./mon.sh >cpu.csv 2>/dev/null &"
 	done 
 
 	if [ "$DISABLE_GCI" == "true" ]; 
@@ -48,7 +49,7 @@ do
 	sleep 5
 	echo "round ${round}: Done. Starting load test..."
 	ssh ${LB_MASTER} -p ${GCI_NGINX_PORT} "sudo rm /var/log/nginx/*.log; sudo systemctl restart nginx;"
-	ssh ${GCI_CLIENT} "source ~/.profile; killall vegeta >/dev/null 2>&1; killall vegeta >/dev/null 2>&1; ${LOAD_CLIENT} >~/client_${FILE_NAME_SUFFIX}_${round}.out 2>~/client_${FILE_NAME_SUFFIX}_${round}.err;"
+	ssh ${LB_MASTER} -p ${GCI_NGINX_PORT} "source ~/.profile; killall vegeta >/dev/null 2>&1; killall vegeta >/dev/null 2>&1; ${LOAD_CLIENT} >~/client_${FILE_NAME_SUFFIX}_${round}.out 2>~/client_${FILE_NAME_SUFFIX}_${round}.err;"
 	ssh ${LB_MASTER} -p ${GCI_NGINX_PORT} "cp /var/log/nginx/access.log ~/al_${FILE_NAME_SUFFIX}_${round}.log;"
 
 	i=0
@@ -60,9 +61,9 @@ do
 
 	echo "round ${round}: Done. Copying results and cleaning up instances..."
 	scp -P ${GCI_NGINX_PORT} ${LB_MASTER}:~/\{*.log,*.out,*.err\} ${OUTPUT_DIR}
-	scp ${GCI_CLIENT}:~/\{*.log,*.out,*.err\} ${OUTPUT_DIR}
+	scp ${LB_MASTER} -p ${GCI_NGINX_PORT}:~/\{*.log,*.out,*.err\} ${OUTPUT_DIR}
 	ssh ${LB_MASTER} -p ${GCI_NGINX_PORT} "rm *.log; rm *.out *.err"
-	ssh ${GCI_CLIENT} "rm *.log; rm *.out *.err"
+	ssh ${LB_MASTER} -p ${GCI_NGINX_PORT} "rm *.log; rm *.out *.err"
 	# sed -i '1i timestamp;status;request_time;upstream_response_time' ${OUTPUT_DIR}/al_${FILE_NAME_SUFFIX}_${round}.log
 
 	i=0
